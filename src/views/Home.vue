@@ -18,9 +18,10 @@
       <h5 v-if="window.width >= 966" style="color: grey; margin-left: 5px;">Bolsas favoritas</h5>
     </div>
     <h1 class="fontHome">Bolsas favoritas</h1>
-    <p
-      class="homDescription"
-    >Adicione os cursos e faculdades do seu interesse e receba atualizações com as melhores ofertas disponíveis</p>
+    <p class="homDescription">
+      Adicione os cursos e faculdades do seu interesse e receba atualizações com
+      as melhores ofertas disponíveis
+    </p>
     <Semesters v-on:semesterFilter="emitFilterSemester($event)" />
     <AddScholarship :winWidth="window.width" :semesterFilterProp="semesterFilter" />
   </div>
@@ -64,56 +65,6 @@ export default {
 };
 </script>
 
-<style scoped>
-#main {
-  margin: 0 15vw;
-}
-.fontBreadcrumb {
-  color: #007a8d;
-  font-weight: 700;
-  margin: 20px 0 40px 0;
-  cursor: pointer;
-}
-
-.fontHome {
-  font-weight: bold;
-}
-
-.homDescription {
-  margin-top: 10px;
-}
-
-.breadcrumbs {
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  align-items: baseline;
-}
-
-.bar {
-  margin: 0 5px;
-}
-
-/* MOBILE */
-@media (max-width: 966px) {
-  .smallIcons {
-    width: 10px;
-    margin: 0px;
-    padding: 0px;
-  }
-
-  .mobileBreadcrumb {
-    display: flex;
-    justify-content: center;
-    padding: 30px 0 40px;
-  }
-
-  .fontBreadcrumb {
-    margin: 0px;
-  }
-
-  #main {
-    margin: 0 5vw;
-  }
-}
+<style lang="scss" scoped>
+@import "../styles/views/home.scss";
 </style>

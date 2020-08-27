@@ -10,13 +10,13 @@ export default new Vuex.Store({
   },
   mutations: {
     CHANGE_FAVSCHOLARSHIPS(state, payload) {
-      state.favScholarshipsStore = payload
-    },
+      state.favScholarshipsStore = payload;
+    }
   },
   actions: {
     changeFavScholarships(context, payload) {
       context.commit("CHANGE_FAVSCHOLARSHIPS", payload);
-      localStorage.setItem('favScholarshipsLS', JSON.stringify(payload))
+      localStorage.setItem("favScholarshipsLS", JSON.stringify(payload));
     }
   },
   modules: {}

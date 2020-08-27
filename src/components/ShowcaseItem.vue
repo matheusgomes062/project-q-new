@@ -1,7 +1,11 @@
 <template>
   <div
     class="showcaseContainer"
-    v-show="showAll || (favorites[favIndex].es2019 && es2019) || (favorites[favIndex].es2020 && es2020)"
+    v-show="
+      showAll ||
+        (favorites[favIndex].es2019 && es2019) ||
+        (favorites[favIndex].es2020 && es2020)
+    "
   >
     <div class="showcaseItem">
       <section
@@ -16,30 +20,42 @@
           />
         </div>
         <section class="showcaseTitle">
-          <h4 class="uniTitle">{{favorites[favIndex].university.name}}</h4>
-          <h4 class="uniSubTitle">{{favorites[favIndex].course.name}}</h4>
+          <h4 class="uniTitle">{{ favorites[favIndex].university.name }}</h4>
+          <h4 class="uniSubTitle">{{ favorites[favIndex].course.name }}</h4>
           <div class="scoreContainer">
-            <h2>{{favorites[favIndex].university.score}}</h2>
+            <h2>{{ favorites[favIndex].university.score }}</h2>
             <img src="@/assets/stars2.png" alt="4 out 5stars" class="stars" />
           </div>
         </section>
       </section>
       <section class="showcaseInfo">
         <div class="info2Txt">
-          <h3 class="info2Title">{{favorites[favIndex].course.kind.toUpperCase()}}</h3>
+          <h3 class="info2Title">
+            {{ favorites[favIndex].course.kind.toUpperCase() }}
+          </h3>
           <h2 style="margin: -8px 5px">.</h2>
-          <h3>{{favorites[favIndex].course.shift.toUpperCase()}}</h3>
+          <h3>{{ favorites[favIndex].course.shift.toUpperCase() }}</h3>
         </div>
-        <h4 class="info2SubTitle">Início das aulas em: {{favorites[favIndex].start_date}}</h4>
+        <h4 class="info2SubTitle">
+          Início das aulas em: {{ favorites[favIndex].start_date }}
+        </h4>
       </section>
       <section class="showcaseInfo" style="border-style: none;">
         <h5 class="showcaseInfo3Title">Mensalidade com o Quero Bolsa:</h5>
-        <h4
-          style="font-weight: 500; text-decoration: line-through;"
-        >{{Math.round(favorites[favIndex].full_price) | numeroPreco}}</h4>
+        <h4 style="font-weight: 500; text-decoration: line-through;">
+          {{ Math.round(favorites[favIndex].full_price) | numeroPreco }}
+        </h4>
         <div class="discountTxt">
-          <h1 class="money">{{Math.round(favorites[favIndex].price_with_discount) | numeroPreco}}</h1>
-          <h4 style="font-weight: 500; text-align: flex-end; align-self: center;">/mês</h4>
+          <h1 class="money">
+            {{
+              Math.round(favorites[favIndex].price_with_discount) | numeroPreco
+            }}
+          </h1>
+          <h4
+            style="font-weight: 500; text-align: flex-end; align-self: center;"
+          >
+            /mês
+          </h4>
         </div>
       </section>
       <div class="showcaseButtonsContainer">
@@ -50,7 +66,11 @@
           </div>
           <div
             class="addBtn addBtnShowcase"
-            :class="[favorites[favIndex].enabled ? {btnDisabled:btnDisabled} : {btnDisabled: btnDisabled = true}]"
+            :class="[
+              favorites[favIndex].enabled
+                ? { btnDisabled: btnDisabled }
+                : { btnDisabled: (btnDisabled = true) }
+            ]"
           >
             <h4 v-if="btnDisabled && winWidth >= 966">Indisponível</h4>
             <h4 v-if="!btnDisabled && winWidth >= 966">Ver oferta</h4>

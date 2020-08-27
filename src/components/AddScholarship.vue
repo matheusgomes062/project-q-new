@@ -4,7 +4,9 @@
       <img src="@/assets/mais.svg" alt="addScholarshipIcon" class="plusIcon" />
       <section class="addScholarshipTxt">
         <h3>Adicionar Bolsa</h3>
-        <h4 class="addScholarshipTxt">Clique para adicionar bolsas de cursos do seu interesse</h4>
+        <h4 class="addScholarshipTxt">
+          Clique para adicionar bolsas de cursos do seu interesse
+        </h4>
       </section>
     </div>
     <ModalAddScholarship
@@ -16,7 +18,7 @@
       v-on:favScholarships="addFavScholarships($event)"
     ></ModalAddScholarship>
     <ShowcaseItem
-      v-for="(fav,index) in this.$store.state.favScholarshipsStore"
+      v-for="(fav, index) in this.$store.state.favScholarshipsStore"
       :key="fav.id"
       :winWidth="winWidth"
       :propFavorites="favScholarships"

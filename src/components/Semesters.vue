@@ -3,25 +3,31 @@
     <div class="semesterContainer">
       <div
         class="item"
-        :class="{item1}"
+        :class="{ item1 }"
         @click="toggleSwitch($event)"
         id="item1"
         value="1"
-      >Todos os semestres</div>
+      >
+        Todos os semestres
+      </div>
       <div
         class="item"
-        :class="{item2}"
+        :class="{ item2 }"
         @click="toggleSwitch($event)"
         id="item2"
         value="2"
-      >2º semestre de 2019</div>
+      >
+        2º semestre de 2019
+      </div>
       <div
         class="item"
-        :class="{item3}"
+        :class="{ item3 }"
         @click="toggleSwitch($event)"
         id="item3"
         value="3"
-      >1º semestre de 2020</div>
+      >
+        1º semestre de 2020
+      </div>
     </div>
   </div>
 </template>

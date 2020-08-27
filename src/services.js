@@ -1,4 +1,3 @@
-
 import axios from "axios";
 
 const axiosInstance = axios.create({
@@ -12,4 +11,4 @@ export const api = {
   post(endpoint, body) {
     return axiosInstance.post(endpoint, body);
   }
-}
+};
