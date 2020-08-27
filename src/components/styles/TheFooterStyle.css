@@ -1,0 +1,126 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  background: #18acc4;
+  text-align: center;
+  font-size: 0.7rem;
+  color: #fff;
+  height: 200px;
+  position: relative;
+  margin-top: 20px;
+}
+
+/* Upper section */
+.helpContainer {
+  display: block;
+  width: 100%;
+  background: #007a8d;
+  /* padding: 0 100px; */
+  /* padding: 10px 0; */
+  text-align: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  position: relative;
+  font-size: 0.9rem;
+  color: #fff;
+  height: 100px;
+  padding: 0;
+}
+
+.help {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 0 15vw;
+  height: 100px;
+  position: relative;
+}
+
+.footerSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.iconsHelp {
+  width: 40px;
+  margin-right: 25px;
+}
+
+.wppHelpTxt {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: white;
+}
+
+
+/* Bottom section */
+.love {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+#heartIcon {
+  width: 15px;
+  margin: 0 5px;
+}
+
+.heartTxt{
+  font-weight: bold;
+}
+
+/* MOBILE */
+@media (max-width: 966px) {
+
+  footer {
+    height: 300px;
+  }
+
+  .helpContainer {
+    height: 66%;
+  }
+
+  .love {
+    height: 50%;
+  }
+
+  .help {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: 100%;
+    position: relative;
+  }
+
+  .chat, .email, .helpI {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .email {
+    border-right: 3px solid #18acc4;
+    border-left: 3px solid #18acc4;
+  }
+
+
+  .iconsHelp {
+    margin: 5px 50px;
+  }
+
+  .wppFooterSection {
+    width: 100%;
+    height: 50%;
+    border-bottom: 3px solid #18acc4;
+  }
+
+  .mobileContainerFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 50%;
+  }
+}

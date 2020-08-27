@@ -1,32 +1,102 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <TheHeader :winWidth="window.width" />
+    <main id="main" :winWidth="window.width">
+      <router-view />
+    </main>
+    <TheFooter :winWidth="window.width" />
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import TheHeader from "@/components/TheHeader.vue";
+import TheFooter from "@/components/TheFooter.vue";
+
+export default {
+  components: {
+    TheHeader,
+    TheFooter
+  },
+  data() {
+    return {
+      window: {
+        width: 0,
+        height: 0
+      }
+    };
+  },
+  created() {
+    window.addEventListener("resize", this.handleResize);
+    this.handleResize();
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.handleResize);
+  },
+  methods: {
+    handleResize() {
+      this.window.width = window.innerWidth;
+      this.window.height = window.innerHeight;
+    }
+  }
+};
+</script>
+
+<style lang="css">
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap");
+
+* {
+  box-sizing: border-box;
 }
 
-#nav {
-  padding: 30px;
+body,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  padding: 0px;
+  margin: 0px;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+ul {
+  list-style: none;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+body {
+  font-family: "Montserrat", sans-serif;
+  color: #1f2d30;
+  background-color: #fbfbfb;
+}
+
+a {
+  color: #1f2d30;
+  list-style: none;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 130vh;
+  font-family: "Montserrat", sans-serif;
+}
+
+#main {
+  flex: 1;
+  top: 75px;
+}
+
+@media (max-width: 966px) {
+  nav {
+    padding: 5px;
   }
 }
 </style>

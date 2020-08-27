@@ -1,0 +1,138 @@
+<template>
+  <div
+    class="showcaseContainer"
+    v-show="showAll || (favorites[favIndex].es2019 && es2019) || (favorites[favIndex].es2020 && es2020)"
+  >
+    <div class="showcaseItem">
+      <section
+        class="showcaseInfo"
+        style="padding: 0px !important; padding-bottom: 15px !important;"
+      >
+        <div class="imgContainer">
+          <img
+            :src="`${favorites[favIndex].university.logo_url}`"
+            alt="universityImg"
+            class="universityImg"
+          />
+        </div>
+        <section class="showcaseTitle">
+          <h4 class="uniTitle">{{favorites[favIndex].university.name}}</h4>
+          <h4 class="uniSubTitle">{{favorites[favIndex].course.name}}</h4>
+          <div class="scoreContainer">
+            <h2>{{favorites[favIndex].university.score}}</h2>
+            <img src="@/assets/stars2.png" alt="4 out 5stars" class="stars" />
+          </div>
+        </section>
+      </section>
+      <section class="showcaseInfo">
+        <div class="info2Txt">
+          <h3 class="info2Title">{{favorites[favIndex].course.kind.toUpperCase()}}</h3>
+          <h2 style="margin: -8px 5px">.</h2>
+          <h3>{{favorites[favIndex].course.shift.toUpperCase()}}</h3>
+        </div>
+        <h4 class="info2SubTitle">Início das aulas em: {{favorites[favIndex].start_date}}</h4>
+      </section>
+      <section class="showcaseInfo" style="border-style: none;">
+        <h5 class="showcaseInfo3Title">Mensalidade com o Quero Bolsa:</h5>
+        <h4
+          style="font-weight: 500; text-decoration: line-through;"
+        >{{Math.round(favorites[favIndex].full_price) | numeroPreco}}</h4>
+        <div class="discountTxt">
+          <h1 class="money">{{Math.round(favorites[favIndex].price_with_discount) | numeroPreco}}</h1>
+          <h4 style="font-weight: 500; text-align: flex-end; align-self: center;">/mês</h4>
+        </div>
+      </section>
+      <div class="showcaseButtonsContainer">
+        <div class="showcaseButtons">
+          <div class="cancelBtn cancelBtnShowcase" @click="popItem(favIndex)">
+            <h4 v-if="winWidth >= 966">Excluir</h4>
+            <h3 v-else>Excluir</h3>
+          </div>
+          <div
+            class="addBtn addBtnShowcase"
+            :class="[favorites[favIndex].enabled ? {btnDisabled:btnDisabled} : {btnDisabled: btnDisabled = true}]"
+          >
+            <h4 v-if="btnDisabled && winWidth >= 966">Indisponível</h4>
+            <h4 v-if="!btnDisabled && winWidth >= 966">Ver oferta</h4>
+            <h3 v-if="btnDisabled && winWidth < 966">Indisponível</h3>
+            <h3 v-if="!btnDisabled && winWidth < 966">Ver oferta</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { mapActions } from "vuex";
+
+export default {
+  name: "ShowcaseItem",
+  props: {
+    propFavorites: { type: Array },
+    favIndex: { type: Number },
+    semesterFilter: { type: Number },
+    winWidth: { type: Number }
+  },
+  data() {
+    return {
+      btnDisabled: false,
+      // favorites: this.propFavorites,
+      favorites: this.$store.state.favScholarshipsStore,
+      showAll: true,
+      es2019: false,
+      es2020: false
+    };
+  },
+  mounted() {
+    // started using vuex
+    // this.favorites.forEach((el, index) => {
+    //   return (this.favIndex = this.favorites);
+    // });
+    // this.favorites = JSON.parse(localStorage.getItem("favScholarshipsLS"));
+    this.semesterFilterTranslate();
+  },
+  filters: {
+    numeroPreco(valor) {
+      return `R$${valor}`;
+    }
+  },
+  methods: {
+    ...mapActions(["changeFavScholarships"]),
+
+    popItem(index) {
+      this.favorites.splice(index, 1);
+      this.changeFavScholarships(this.favorites);
+    },
+    semesterFilterTranslate() {
+      let enroll = this.favorites[this.favIndex].enrollment_semester;
+      if (this.semesterFilter === 1) {
+        this.showAll = true;
+      } else if (this.semesterFilter === 2) {
+        this.showAll = false;
+        if (enroll.indexOf("2019") !== -1)
+          this.favorites[this.favIndex].es2019 = true;
+        this.all = false;
+        this.es2019 = true;
+        this.es2020 = false;
+      } else if (this.semesterFilter === 3) {
+        this.showAll = false;
+        if (enroll.indexOf("2020") !== -1)
+          this.favorites[this.favIndex].es2020 = true;
+        this.all = false;
+        this.es2019 = false;
+        this.es2020 = true;
+      }
+    }
+  },
+  watch: {
+    semesterFilter: function() {
+      this.semesterFilterTranslate();
+    }
+  }
+};
+</script>
+
+<style lang="css">
+@import "./styles/ShowcaseItemStyle.css";
+</style>
