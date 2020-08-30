@@ -10,16 +10,16 @@ $s-device: 480px;
     @media screen and (min-width: $l-device) {
       @content;
     }
-  } @else if $size == m {
-    @media screen and (min-width: #{$m-device}) and (max-width: $l-device - 1) {
-      @content;
-    }
+    // } @else if $size == m {
+    //   @media screen and (min-width: #{$m-device}) and (max-width: $l-device - 1) {
+    //     @content;
+    //   }
   } @else if $size == s {
     @media screen and (max-width: $m-device - 1) {
       @content;
     }
   } @else if $size == sm {
-    @media screen and (max-width: $m-device - 1) and (max-width: $l-device - 1) {
+    @media screen and (max-width: $l-device - 1) {
       @content;
     }
   }

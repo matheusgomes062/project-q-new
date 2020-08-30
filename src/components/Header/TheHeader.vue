@@ -7,7 +7,7 @@
           <h4 v-if="winWidth.large" style="margin-right: 20px;">Como Funciona</h4>
           <h3 v-else>Ajuda</h3>
         </router-link>
-        <router-link to="/" class="wpp">
+        <router-link to="/" class="wpp" v-if="winWidth.large">
           <img
             src="@/assets/whatsapp-brands-green.svg"
             alt="whatsappImagem"
@@ -37,10 +37,10 @@
       </a>
     </nav>
     <div class="bottomNav">
-      <a id="myAccount">Minha conta</a>
-      <a id="preEnroll">Pré-matrículas</a>
-      <a id="favScholarhsips">Bolsas favoritas</a>
-      <div v-if="winWidth.small" class="bottomNavTxt" id="bottomNavMenu">Menu</div>
+      <a v-if="winWidth.large" id="myAccount">Minha conta</a>
+      <a v-if="winWidth.large" id="preEnroll">Pré-matrículas</a>
+      <a v-if="winWidth.large" id="favScholarhsips">Bolsas favoritas</a>
+      <div v-if="winWidth.small" id="bottomNavMenu">Menu</div>
     </div>
   </header>
 </template>
