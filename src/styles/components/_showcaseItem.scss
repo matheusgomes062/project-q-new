@@ -3,6 +3,12 @@
   flex-direction: column;
   height: 500px;
   margin: 0 10px 20px 0;
+
+  @include d(sm) {
+    height: auto;
+    width: 100%;
+    margin: 20px 0 20px 0;
+  }
 }
 
 .showcaseItem {
@@ -20,6 +26,10 @@
   }
   .showcaseInfo:nth-child(3) {
     border-style: none;
+  }
+
+  @include d(sm) {
+    width: auto;
   }
 }
 
@@ -53,6 +63,10 @@
     font-family: $main-font;
     color: $black;
   }
+
+  @include d(sm) {
+    padding: 20px 0;
+  }
 }
 
 .imgContainer {
@@ -63,6 +77,9 @@
   margin-bottom: 5px;
   img {
     max-height: 70px;
+  }
+  @include d(sm) {
+    margin-bottom: 20px;
   }
 }
 
@@ -119,6 +136,9 @@
     justify-content: space-evenly;
     height: 35px;
     width: 100%;
+    @include d(sm) {
+      height: 50px;
+    }
   }
 
   .cancelBtnShowcase {
@@ -139,34 +159,4 @@
 .stars {
   width: auto;
   height: 25px;
-}
-
-/* MOBILE */
-@media (max-width: 966px) {
-  .showcaseItem {
-    width: 100%;
-  }
-
-  .showcaseContainer {
-    height: 450px;
-    margin-top: 20px;
-  }
-
-  .showcaseButtonsContainer {
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-  }
-
-  .showcaseButtons {
-    height: 50px;
-  }
-
-  .cancelBtnShowcase {
-    width: 35%;
-  }
-
-  .addBtnShowcase {
-    width: 55%;
-  }
 }
