@@ -5,13 +5,6 @@ $l-device: 1200px;
 $m-device: 760px;
 $s-device: 480px;
 
-// // Box-sizing
-// *,
-// *::after,
-// *::before {
-//   box-sizing: border-box;
-// }
-
 @mixin d($size) {
   @if $size == l {
     @media screen and (min-width: $l-device) {
@@ -23,6 +16,10 @@ $s-device: 480px;
     }
   } @else if $size == s {
     @media screen and (max-width: $m-device - 1) {
+      @content;
+    }
+  } @else if $size == sm {
+    @media screen and (max-width: $m-device - 1) and (max-width: $l-device - 1) {
       @content;
     }
   }

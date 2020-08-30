@@ -4,7 +4,7 @@
       <div class="flex-row">
         <router-link to="/" class="hiw">
           <img src="@/assets/botao-redondo-de-informacao.svg" alt="questionMark" class="smallIcons" />
-          <h4 v-if="winWidth >= 966" style="margin-right: 20px;">Como Funciona</h4>
+          <h4 v-if="winWidth.large" style="margin-right: 20px;">Como Funciona</h4>
           <h3 v-else>Ajuda</h3>
         </router-link>
         <router-link to="/" class="wpp">
@@ -24,10 +24,10 @@
         <img src="@/assets/logo-queroBolsa.svg" alt="queroBolsaLogo" />
       </router-link>
       <a class="profileIcon">
-        <h4 v-if="winWidth >= 966">Nome Sobrenome</h4>
+        <h4 v-if="winWidth.large">Nome Sobrenome</h4>
         <h3 v-else>Conta</h3>
         <img
-          v-if="winWidth >= 966"
+          v-if="winWidth.large"
           src="@/assets/user-circle-regular.svg"
           alt="iconePerfil"
           class="smallIcons"
@@ -40,7 +40,7 @@
       <a id="myAccount">Minha conta</a>
       <a id="preEnroll">Pré-matrículas</a>
       <a id="favScholarhsips">Bolsas favoritas</a>
-      <div v-if="winWidth < 966" class="bottomNavTxt" id="bottomNavMenu">Menu</div>
+      <div v-if="winWidth.small" class="bottomNavTxt" id="bottomNavMenu">Menu</div>
     </div>
   </header>
 </template>
@@ -49,7 +49,10 @@
 export default {
   name: "TheHeader",
   props: {
-    winWidth: { type: Number }
+    winWidth: { type: Object }
+  },
+  data() {
+    return {};
   }
 };
 </script>

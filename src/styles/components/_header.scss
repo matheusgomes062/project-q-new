@@ -5,6 +5,10 @@ nav {
   @include box-shadow(0 2px 4px 0 rgba(0, 0, 0, 0.16));
   padding: 10px 15vw;
   position: relative;
+  @include d(sm) {
+    grid-template-columns: 1fr 3fr 1fr;
+    padding: 10px;
+  }
 }
 
 h1,
@@ -58,7 +62,7 @@ h5 {
   @extend .flex-row;
   justify-self: flex-end;
   align-items: center;
-  width:  fit-content;
+  width: fit-content;
   cursor: pointer;
 }
 

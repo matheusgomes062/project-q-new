@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TheHeader :winWidth="window.width" />
+    <TheHeader :winWidth="windowSize" />
     <main id="main" :winWidth="window.width">
       <router-view />
     </main>
@@ -22,6 +22,11 @@ export default {
       window: {
         width: 0,
         height: 0
+      },
+      windowSize: {
+        large: false,
+        medium: false,
+        small: false
       }
     };
   },
@@ -36,6 +41,19 @@ export default {
     handleResize() {
       this.window.width = window.innerWidth;
       this.window.height = window.innerHeight;
+      this.handleWidth(this.window.width);
+    },
+    handleWidth(size) {
+      if (size > 1200) {
+        this.windowSize.large = true;
+        this.windowSize.medium = false;
+        this.windowSize.small = false;
+      } else if (size <= 1200) {
+        this.windowSize.large = false;
+        this.windowSize.medium = false;
+        this.windowSize.small = true;
+      }
+      return;
     }
   }
 };
