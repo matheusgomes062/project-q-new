@@ -10,7 +10,7 @@
 
 <script>
 import TheHeader from "@/components/Header/TheHeader.vue";
-import TheFooter from "@/components/TheFooter.vue";
+import TheFooter from "@/components/Footer/TheFooter.vue";
 
 export default {
   components: {

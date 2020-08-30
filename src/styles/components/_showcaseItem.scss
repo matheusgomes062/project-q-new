@@ -1,7 +1,7 @@
 .showcaseContainer {
   display: flex;
   flex-direction: column;
-  height: 440px;
+  height: 500px;
   margin: 0 10px 20px 0;
 }
 
@@ -14,106 +14,126 @@
   align-items: center;
   flex-direction: column;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
+  .showcaseInfo:nth-child(1) {
+    padding: 0px;
+    padding-bottom: 15px;
+  }
+  .showcaseInfo:nth-child(3) {
+    border-style: none;
+  }
 }
 
 .showcaseInfo {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   border-bottom: 3px solid #d3d3d3;
   padding: 10px 0;
   width: 100%;
+  height: 100%;
+  section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    @include type-1(14);
+    :first-child {
+      color: $black;
+      margin-bottom: 5px;
+    }
+    :nth-child(2) {
+      color: $secondary-blue;
+      margin-bottom: 10px;
+    }
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: $main-font;
+    color: $black;
+  }
 }
 
 .imgContainer {
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
   height: 70px;
   margin-bottom: 5px;
-}
-
-.universityImg {
-  max-height: 70px;
-}
-
-.showcaseTitle {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.uniTitle {
-  margin-bottom: 5px;
-}
-
-.uniSubTitle {
-  color: #007a8d;
-  margin-bottom: 10px;
-}
-
-.info2Txt {
-  display: flex;
-  flex-direction: row;
-}
-
-.info2Title {
-  margin-bottom: 10px;
-}
-
-.info2SubTitle {
-  font-size: 0.95em;
-  font-weight: 100;
-}
-
-.showcaseInfo3Title {
-  margin-bottom: 10px;
-}
-
-.discountTxt {
-  display: flex;
-  flex-direction: row;
-}
-
-.showcaseButtonsContainer {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-}
-
-.showcaseButtons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  height: 35px;
-  width: 100%;
-}
-
-.cancelBtnShowcase {
-  width: 90px;
-}
-
-.addBtnShowcase {
-  width: 120px;
-}
-
-.btnDisabled {
-  border: 2px solid #adadad !important;
-  background-color: #d3d3d3 !important;
-  cursor: default;
+  img {
+    max-height: 70px;
+  }
 }
 
 .scoreContainer {
   width: 100%;
-  display: flex;
-  flex-direction: row;
+  @extend .flex-row;
   justify-content: space-evenly;
   align-items: center;
+}
+
+.courseTurn {
+  @extend .flex-row;
+  h2,
+  h3 {
+    color: $black;
+    @include type-1(18);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+}
+
+.classStart {
+  color: $black;
+  @include type-1(14);
+  font-weight: 100;
+}
+
+.queroBolsaDiscount {
+  margin-bottom: 10px;
+  @include type-1(14);
+  color: $black;
+  font-weight: 700;
+}
+
+.discountTxt {
+  @extend .flex-row;
+  align-items: baseline;
+  h1 {
+    color: #0fa866;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  h4 {
+    font-weight: 500;
+  }
+}
+
+.showcaseButtonsContainer {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  div {
+    @extend .flex-row;
+    justify-content: space-evenly;
+    height: 35px;
+    width: 100%;
+  }
+
+  .cancelBtnShowcase {
+    width: 90px;
+  }
+
+  .addBtnShowcase {
+    width: 120px;
+  }
+
+  .btnDisabled {
+    border: 2px solid #adadad;
+    background-color: #d3d3d3;
+    cursor: default;
+  }
 }
 
 .stars {

@@ -8,50 +8,43 @@
     "
   >
     <div class="showcaseItem">
-      <section
-        class="showcaseInfo"
-        style="padding: 0px !important; padding-bottom: 15px !important;"
-      >
+      <section class="showcaseInfo">
         <div class="imgContainer">
-          <img
-            :src="`${favorites[favIndex].university.logo_url}`"
-            alt="universityImg"
-            class="universityImg"
-          />
+          <img :src="`${favorites[favIndex].university.logo_url}`" alt="universityImg" />
         </div>
-        <section class="showcaseTitle">
-          <h4 class="uniTitle">{{ favorites[favIndex].university.name }}</h4>
-          <h4 class="uniSubTitle">{{ favorites[favIndex].course.name }}</h4>
+        <section>
+          <h4>{{ favorites[favIndex].university.name }}</h4>
+          <h4>{{ favorites[favIndex].course.name }}</h4>
           <div class="scoreContainer">
             <h2>{{ favorites[favIndex].university.score }}</h2>
-            <img src="@/assets/stars2.png" alt="4 out 5stars" class="stars" />
+            <img src="@/assets/stars2.png" alt="4 out 5 stars" class="stars" />
           </div>
         </section>
       </section>
       <section class="showcaseInfo">
-        <div class="info2Txt">
-          <h3 class="info2Title">{{ favorites[favIndex].course.kind.toUpperCase() }}</h3>
-          <h2 style="margin: -8px 5px">.</h2>
+        <div class="courseTurn">
+          <h3>{{ favorites[favIndex].course.kind.toUpperCase() }}</h3>
+          <h2 style="margin: -5px 5px">.</h2>
           <h3>{{ favorites[favIndex].course.shift.toUpperCase() }}</h3>
         </div>
-        <h4 class="info2SubTitle">Início das aulas em: {{ favorites[favIndex].start_date }}</h4>
+        <h4 class="classStart">Início das aulas em: {{ favorites[favIndex].start_date }}</h4>
       </section>
-      <section class="showcaseInfo" style="border-style: none;">
-        <h5 class="showcaseInfo3Title">Mensalidade com o Quero Bolsa:</h5>
+      <section class="showcaseInfo">
+        <h5 class="queroBolsaDiscount">Mensalidade com o Quero Bolsa:</h5>
         <h4
           style="font-weight: 500; text-decoration: line-through;"
         >{{ Math.round(favorites[favIndex].full_price) | numeroPreco }}</h4>
         <div class="discountTxt">
-          <h1 class="money">
+          <h1>
             {{
             Math.round(favorites[favIndex].price_with_discount) | numeroPreco
             }}
           </h1>
-          <h4 style="font-weight: 500; text-align: flex-end; align-self: center;">/mês</h4>
+          <h4>/mês</h4>
         </div>
       </section>
       <div class="showcaseButtonsContainer">
-        <div class="showcaseButtons">
+        <div>
           <div class="cancelBtn cancelBtnShowcase" @click="popItem(favIndex)">
             <h4 v-if="winWidth >= 966">Excluir</h4>
             <h3 v-else>Excluir</h3>

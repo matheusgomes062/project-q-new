@@ -1,0 +1,129 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  background: $main-blue;
+  text-align: center;
+  font-size: 0.7rem;
+  color: #fff;
+  height: 200px;
+  position: relative;
+  margin-top: 20px;
+  @include type-1(12);
+}
+
+/* Upper section */
+.helpContainer {
+  display: block;
+  width: 100%;
+  background: $secondary-blue;
+  text-align: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  position: relative;
+  font-size: 0.9rem;
+  color: #fff;
+  height: 100px;
+  padding: 0;
+}
+
+.help {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 0 15vw;
+  height: 100px;
+  position: relative;
+}
+
+.footerSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 40px;
+    margin-right: 25px;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: white;
+    h3 {
+      font-weight: 600;
+      color: #fff;
+      &:first-of-type {
+        @include type-1(20);
+      }
+      &:nth-child(2) {
+        @include type-1(16);
+      }
+    }
+  }
+}
+
+/* Bottom section */
+.madeWithLove {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+
+  img {
+    width: 15px;
+    margin: 0 5px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 966px) {
+  footer {
+    height: 300px;
+  }
+
+  .helpContainer {
+    height: 66%;
+  }
+
+  .love {
+    height: 50%;
+  }
+
+  .help {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: 100%;
+    position: relative;
+  }
+
+  .chat,
+  .email,
+  .helpI {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .email {
+    border-right: 3px solid #18acc4;
+    border-left: 3px solid #18acc4;
+  }
+
+  .iconsHelp {
+    margin: 5px 50px;
+  }
+
+  .wppFooterSection {
+    width: 100%;
+    height: 50%;
+    border-bottom: 3px solid #18acc4;
+  }
+
+  .mobileContainerFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 50%;
+  }
+}
