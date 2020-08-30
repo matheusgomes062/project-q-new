@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mainScholarshipContainer">
     <div class="addScholarshipContainer">
       <div class="addScholarshipModal" @click="modal = true">
         <img src="@/assets/mais.svg" alt="addScholarshipIcon" />
