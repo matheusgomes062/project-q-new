@@ -16,6 +16,10 @@
       color: #fafafa;
     }
   }
+  @include d(sm) {
+    flex-grow: 1;
+    margin: 0 20px;
+  }
 }
 
 .addBtn {
@@ -34,6 +38,10 @@
   border-radius: 5px;
   h4 {
     border-style: none !important;
+  }
+  @include d(sm) {
+    flex-grow: 1;
+    margin: 0 20px;
   }
 }
 

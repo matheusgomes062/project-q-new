@@ -1,35 +1,55 @@
 <template>
   <footer>
-    <!-- sorry i couldn't find another way to make this work with the time i had -->
-    <div v-if="winWidth >= 966" class="helpContainer">
+    <div class="helpContainer">
       <div class="help">
-        <router-link to="/" class="footerSection">
-          <img src="@/assets/whatsapp-brands.svg" alt="wppHelp" />
-          <div>
+        <router-link to="/" class="footerSection" style="margin-bottom: 4px;">
+          <img src="@/assets/whatsapp-brands.svg" alt="wppHelp" style="margin: 0 10px 0 0" />
+          <div v-if="winWidth.large">
             <h3>0800 123 2222</h3>
             <h3>Seg - Sex 8h-22h</h3>
           </div>
+          <div v-else>
+            <div>
+              <h3>0800 123 2222</h3>
+              <h3>Segunda a sexta 8h às 22h</h3>
+            </div>
+          </div>
         </router-link>
-        <router-link to="/" class="footerSection">
+        <router-link
+          to="/"
+          class="footerSection"
+          :class="winWidth.large ? '' :  'smallIconsFooter'"
+        >
           <img src="@/assets/comments-regular.svg" alt="chatHelp" />
-          <div>
+          <div v-if="winWidth.large">
             <h3>Chat ao vivo</h3>
             <h3>Seg - Sex 8h-22h</h3>
           </div>
+          <div v-else>Chat</div>
         </router-link>
-        <router-link to="/" class="footerSection">
+        <router-link
+          to="/"
+          class="footerSection"
+          :class="winWidth.large ? '' :  'smallIconsFooter'"
+        >
           <img src="@/assets/envelope-regular.svg" alt="emailHelp" />
-          <div>
+          <div v-if="winWidth.large">
             <h3>Mande um e-mail</h3>
             <h3>Respondemos rapidinho</h3>
           </div>
+          <div v-else>E-mail</div>
         </router-link>
-        <router-link to="/" class="footerSection">
+        <router-link
+          to="/"
+          class="footerSection"
+          :class="winWidth.large ? '' :  'smallIconsFooter' "
+        >
           <img src="@/assets/botao-redondo-de-informacao-white.svg" alt="centralHelp" />
-          <div>
+          <div v-if="winWidth.large">
             <h3>Central de ajuda</h3>
             <h3>Encontre todas as respostas</h3>
           </div>
+          <div v-else>Ajuda</div>
         </router-link>
       </div>
       <div class="madeWithLove">
@@ -38,52 +58,6 @@
         <p>pela Quero Educação</p>
       </div>
     </div>
-    <!-- if mobile
-    <div v-else class="helpContainer">
-      <div class="help">
-        <router-link to="/" class="footerSection wppFooterSection">
-          <img
-            src="@/assets/whatsapp-brands.svg"
-            alt="wppHelp"
-            class="iconsHelp"
-            style="margin: 0 20px"
-          />
-          <div class="wppHelpTxt">
-            <h3>0800 123 2222</h3>
-            <h3 style="font-weight: 100;">Segunda a sexta de 8h às 22h</h3>
-          </div>
-        </router-link>
-        <div class="mobileContainerFooter">
-          <router-link to="/" class="footerSection chat">
-            <img src="@/assets/comments-regular.svg" alt="wppHelp" class="iconsHelp" />
-            <div class="wppHelpTxt">
-              <h3>Chat</h3>
-            </div>
-          </router-link>
-          <router-link to="/" class="footerSection email">
-            <img src="@/assets/envelope-regular.svg" alt="wppHelp" class="iconsHelp" />
-            <div class="wppHelpTxt">
-              <h3>E-mail</h3>
-            </div>
-          </router-link>
-          <router-link to="/" class="footerSection helpI">
-            <img
-              src="@/assets/botao-redondo-de-informacao-white.svg"
-              alt="wppHelp"
-              class="iconsHelp"
-            />
-            <div class="wppHelpTxt">
-              <h3>Ajuda</h3>
-            </div>
-          </router-link>
-        </div>
-      </div>
-      <div class="love">
-        <p class="heartTxt">Feito com</p>
-        <img id="heartIcon" src="@/assets/heart-regular.svg" alt="heart" />
-        <p class="heartTxt">pela Quero Educação</p>
-      </div>
-    </div>-->
   </footer>
 </template>
 
@@ -91,7 +65,7 @@
 export default {
   name: "TheFooter",
   props: {
-    winWidth: { type: Number }
+    winWidth: { type: Object }
   }
 };
 </script>

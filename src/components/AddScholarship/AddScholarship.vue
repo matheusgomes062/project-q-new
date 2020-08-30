@@ -43,7 +43,7 @@ export default {
   },
   props: {
     semesterFilterProp: { type: Number, default: 1 },
-    winWidth: { type: Number }
+    winWidth: { type: Object }
   },
   data() {
     return {

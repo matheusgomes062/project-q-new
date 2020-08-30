@@ -8,7 +8,7 @@
         <h2>Adicionar bolsa</h2>
         <span>Filtre e adicione as bolsas de seu interesse.</span>
       </section>
-      <div v-if="winWidth >= 966" class="options">
+      <div class="options">
         <div class="containerModal">
           <span>SELECIONE SUA CIDADE</span>
           <select class="select" v-model="citySelected">
@@ -75,28 +75,28 @@
             <div class="imgList">
               <img :src="`${bolsa.university.logo_url}`" alt />
             </div>
-            <div v-if="winWidth >= 966" class="courseTitleContainer">
+            <div v-if="winWidth.large" class="courseTitleContainer">
               <h4>{{ bolsa.course.name }}</h4>
               <h5>{{ bolsa.course.level }}</h5>
             </div>
-            <div v-if="winWidth >= 966" class="discountContainer">
+            <div v-if="winWidth.large" class="discountContainer">
               <div>
                 <h4>Bolsa de</h4>
                 <h3>{{ Math.round(bolsa.discount_percentage) }}%</h3>
               </div>
               <h3>R$ {{ Math.round(bolsa.price_with_discount) }}/mês</h3>
             </div>
-            <div v-else class="rightInfoContainer">
+            <div v-else class="mobileCourseInfoContainer">
               <div class="courseTitleContainer">
-                <h3 class="courseTitle">{{ bolsa.course.name }}</h3>
-                <h4 class="courseSubTitle">{{ bolsa.course.level }}</h4>
+                <h4>{{ bolsa.course.name }}</h4>
+                <h5>{{ bolsa.course.level }}</h5>
               </div>
               <div class="discountContainer">
-                <div class="discountTitleContainer">
-                  <h4 class="discountTitle">Bolsa de</h4>
-                  <h3 class="money">{{ Math.round(bolsa.discount_percentage) }}%</h3>
+                <div>
+                  <h4>Bolsa de</h4>
+                  <h3>{{ Math.round(bolsa.discount_percentage) }}%</h3>
                 </div>
-                <h3 class="money">R$ {{ Math.round(bolsa.price_with_discount) }}/mês</h3>
+                <h3>R$ {{ Math.round(bolsa.price_with_discount) }}/mês</h3>
               </div>
             </div>
           </div>
@@ -128,7 +128,7 @@ export default {
   props: {
     modal: { type: Boolean },
     data: { type: Array },
-    winWidth: { type: Number }
+    winWidth: { type: Object }
   },
   data() {
     return {

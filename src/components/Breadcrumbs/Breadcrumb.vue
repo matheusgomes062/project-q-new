@@ -4,7 +4,7 @@
     <h5 class="bar">/</h5>
     <h5>Minha conta</h5>
     <h5 class="bar">/</h5>
-    <h5 style="color: grey; margin-left: 5px;">Bolsas favoritas</h5>
+    <h5>Bolsas favoritas</h5>
   </div>
 </template>
 

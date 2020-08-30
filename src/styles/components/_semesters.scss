@@ -33,7 +33,7 @@
     border-radius: 0px 5px 5px 0px;
   }
 
-  // MAKE THIS MORE EFFICIENT
+  // TODO MAKE THIS MORE EFFICIENT
   .item1,
   .item2,
   .item3,
@@ -44,40 +44,21 @@
     transition: 0.2s;
     -webkit-transition: 0.2s;
   }
-}
 
-/* MOBILE */
-@media (max-width: 966px) {
-  .semesterContainer {
-    display: flex;
+  @include d(sm) {
     flex-direction: column;
-    border: 1px solid #007a8d;
     width: 100%;
-  }
-
-  .item {
-    padding: 10px 20px;
-    justify-content: center;
-    align-items: center;
-    display: inline-flex;
-    text-align: center;
-    font-weight: bold;
-    border: 1px solid #007a8d;
-    background-color: white;
-    color: #007a8d;
-    cursor: pointer;
-  }
-
-  .selectedItem,
-  .item1,
-  .item2,
-  .item3 {
-    border: 1px solid #007a8d;
-    background-color: #007a8d;
-    color: white;
-  }
-
-  #item3 {
-    border: 1px solid #007a8d;
+    div:nth-child(n) {
+      padding: 10px 15px;
+    }
+    div:nth-child(1) {
+      border-radius: 5px 5px 0px 0px;
+    }
+    div:nth-child:not(:first-child, :last-child) {
+      border-radius: 0px 0px 0px 0px;
+    }
+    div:nth-last-child(1) {
+      border-radius: 0px 0px 5px 5px;
+    }
   }
 }
