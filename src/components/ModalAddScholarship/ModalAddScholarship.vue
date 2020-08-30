@@ -1,171 +1,70 @@
 <template>
   <section class="modal" v-if="modal" @click="fecharModal">
     <div class="closeModalContainer" @click="fecharModal">
-      <img
-        src="@/assets/times-solid.svg"
-        alt="closeModal"
-        class="closeModalIcon"
-        @click="fecharModal"
-      />
+      <img src="@/assets/times-solid.svg" alt="closeModal" @click="fecharModal" />
     </div>
     <div class="modalContainer">
-      <section style="margin-bottom: 30px;">
+      <section>
         <h2>Adicionar bolsa</h2>
         <span>Filtre e adicione as bolsas de seu interesse.</span>
       </section>
-      <section v-if="winWidth >= 966" class="options">
+      <div v-if="winWidth >= 966" class="options">
         <div class="containerModal">
-          <span class="modalTitle">SELECIONE SUA CIDADE</span>
+          <span>SELECIONE SUA CIDADE</span>
           <select class="select" v-model="citySelected">
             <option disabled value>Escolha uma cidade</option>
             <option v-for="option in cities" :key="option">{{ option }}</option>
           </select>
-          <span class="modalTitle" style="margin-bottom: 20px;"
-            >COMO VOCÊ QUER ESTUDAR?</span
-          >
+          <span style="margin-bottom: 20px;">COMO VOCÊ QUER ESTUDAR?</span>
           <div class="checkboxContainer">
-            <div class="checkboxCenter">
-              <input
-                class="checkbox"
-                type="checkbox"
-                id="presencial"
-                value="Presencial"
-                v-model="kind"
-                style="margin-left: 0;"
-              />
+            <div>
+              <input type="checkbox" id="presencial" value="Presencial" v-model="kind" />
               <label for="presencial">Presencial</label>
             </div>
-            <div class="checkboxCenter">
-              <input
-                class="checkbox"
-                type="checkbox"
-                id="distancia"
-                value="EaD"
-                v-model="kind"
-              />
+            <div>
+              <input type="checkbox" id="distancia" value="EaD" v-model="kind" />
               <label for="distancia">A distância</label>
             </div>
           </div>
         </div>
         <div class="containerModal">
-          <span class="modalTitle">SELECIONE O CURSO DE SUA PREFERÊNCIA</span>
-          <select class="select" v-model="courseSelected">
+          <span>SELECIONE O CURSO DE SUA PREFERÊNCIA</span>
+          <select v-model="courseSelected">
             <option disabled value>Escolha um curso</option>
-            <option v-for="option in courses" :key="option.id">{{
+            <option v-for="option in courses" :key="option.id">
+              {{
               option
-            }}</option>
+              }}
+            </option>
           </select>
-          <span class="modalTitle">ATÉ QUANTO PODE PAGAR?</span>
-          <h4 style="margin-bottom: 5px; font-weight: 100;">
-            {{ sliderValue | numeroPreco }}
-          </h4>
+          <span>ATÉ QUANTO PODE PAGAR?</span>
+          <h4>{{ sliderValue | numeroPreco }}</h4>
           <div class="slideContainer">
             <input
               type="range"
               min="1"
               max="10000"
               value="10000"
-              class="slider"
               id="priceRange"
               v-model="sliderValue"
             />
           </div>
         </div>
-      </section>
-      <!-- MOBILE -->
-      <section v-else class="options">
-        <div class="containerModal">
-          <span class="modalTitle">SELECIONE SUA CIDADE</span>
-          <div class="selectBox">
-            <select v-model="citySelected">
-              <option disabled value>Escolha uma cidade</option>
-              <option v-for="option in cities" :key="option">{{
-                option
-              }}</option>
-            </select>
-          </div>
-          <span class="modalTitle">SELECIONE O CURSO DE SUA PREFERÊNCIA</span>
-          <div class="selectBox">
-            <select v-model="courseSelected">
-              <option disabled value>Escolha um curso</option>
-              <option v-for="option in courses" :key="option.id">{{
-                option
-              }}</option>
-            </select>
-          </div>
-        </div>
-        <div class="containerModal">
-          <span class="modalTitle" style="margin-bottom: 20px;"
-            >COMO VOCÊ QUER ESTUDAR?</span
-          >
-          <div class="checkboxContainer">
-            <div class="checkboxCenter">
-              <input
-                class="checkbox"
-                type="checkbox"
-                id="presencial"
-                value="Presencial"
-                v-model="kind"
-                style="margin-left: 0;"
-              />
-              <label for="presencial">Presencial</label>
-            </div>
-            <div class="checkboxCenter">
-              <input
-                class="checkbox"
-                type="checkbox"
-                id="distancia"
-                value="EaD"
-                v-model="kind"
-              />
-              <label for="distancia">A distância</label>
-            </div>
-          </div>
-          <span class="modalTitle">ATÉ QUANTO PODE PAGAR?</span>
-          <h4 style="margin-bottom: 5px; font-weight: 100;">
-            {{ sliderValue | numeroPreco }}
-          </h4>
-          <div class="slideContainer">
-            <input
-              type="range"
-              min="1"
-              max="10000"
-              value="10000"
-              class="slider"
-              id="priceRange"
-              v-model="sliderValue"
-            />
-          </div>
-        </div>
-      </section>
-      <!-- END MOBILE -->
+      </div>
+
       <section class="scholarshipListContainer">
         <div class="headerList">
           <h4>Resultado:</h4>
           <div class="orderByContainer">
             <h4 class="orderByTxt" style="margin-right: 5px;">Ordenar por</h4>
-            <div
-              v-for="orderBy in order"
-              :key="orderBy.id"
-              class="orderByOption"
-            >
-              <div class="containerOrderBy">
-                <h4>{{ orderBy }}</h4>
-                <img
-                  src="@/assets/chevron-down-solid.svg"
-                  alt="arrowDown"
-                  id="arrowDownIcon"
-                />
-              </div>
+            <div v-for="orderBy in order" :key="orderBy.id" class="orderByOption">
+              <h4>{{ orderBy }}</h4>
+              <img src="@/assets/chevron-down-solid.svg" alt="arrowDown" id="arrowDownIcon" />
             </div>
           </div>
         </div>
         <div class="scholarshipList">
-          <div
-            v-for="(bolsa, index) in scholarships"
-            :key="bolsa.id"
-            class="scholarshipsListItem"
-          >
+          <div v-for="(bolsa, index) in scholarships" :key="bolsa.id" class="scholarshipsListItem">
             <input
               class="checkboxList"
               type="checkbox"
@@ -174,26 +73,18 @@
               v-model="checkedScholarships"
             />
             <div class="imgList">
-              <img
-                class="imgListItem"
-                :src="`${bolsa.university.logo_url}`"
-                alt
-              />
+              <img :src="`${bolsa.university.logo_url}`" alt />
             </div>
             <div v-if="winWidth >= 966" class="courseTitleContainer">
-              <h4 class="courseTitle">{{ bolsa.course.name }}</h4>
-              <h5 class="courseSubTitle">{{ bolsa.course.level }}</h5>
+              <h4>{{ bolsa.course.name }}</h4>
+              <h5>{{ bolsa.course.level }}</h5>
             </div>
             <div v-if="winWidth >= 966" class="discountContainer">
-              <div class="discountTitleContainer discountTitleContainerDesktop">
-                <h4 class="discountTitle">Bolsa de</h4>
-                <h3 class="money">
-                  {{ Math.round(bolsa.discount_percentage) }}%
-                </h3>
+              <div>
+                <h4>Bolsa de</h4>
+                <h3>{{ Math.round(bolsa.discount_percentage) }}%</h3>
               </div>
-              <h3 class="money">
-                R$ {{ Math.round(bolsa.price_with_discount) }}/mês
-              </h3>
+              <h3>R$ {{ Math.round(bolsa.price_with_discount) }}/mês</h3>
             </div>
             <div v-else class="rightInfoContainer">
               <div class="courseTitleContainer">
@@ -203,13 +94,9 @@
               <div class="discountContainer">
                 <div class="discountTitleContainer">
                   <h4 class="discountTitle">Bolsa de</h4>
-                  <h3 class="money">
-                    {{ Math.round(bolsa.discount_percentage) }}%
-                  </h3>
+                  <h3 class="money">{{ Math.round(bolsa.discount_percentage) }}%</h3>
                 </div>
-                <h3 class="money">
-                  R$ {{ Math.round(bolsa.price_with_discount) }}/mês
-                </h3>
+                <h3 class="money">R$ {{ Math.round(bolsa.price_with_discount) }}/mês</h3>
               </div>
             </div>
           </div>
@@ -225,12 +112,7 @@
             :class="{ btnDisabled: btnDisabled }"
             @click="addScholarships($event)"
           >
-            <h4
-              :class="{ btnDisabled: btnDisabled }"
-              style="border-style: none !important"
-            >
-              Adicionar bolsa(s)
-            </h4>
+            <h4 :class="{ btnDisabled: btnDisabled }">Adicionar bolsa(s)</h4>
           </div>
         </div>
       </div>
@@ -379,6 +261,7 @@ export default {
 };
 </script>
 
-<style scoped lang="css">
-@import "./styles/ModalAddScholarshipStyle.css";
+<style lang="scss" scoped>
+@import "../../styles/components/modalAddScholarship.scss";
+@import "../../styles/basics/buttons.scss";
 </style>

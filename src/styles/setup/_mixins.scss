@@ -5,16 +5,12 @@
 
 @mixin type-1($size) {
   font-family: $main-font;
-  @if $size == 16 {
-    font-size: em(16);
-  } @else if $size == 18 {
-    font-size: em(18);
+  font-size: em($size);
+  @if $size == 18 {
     line-height: em(30, 18);
   } @else if $size == 24 {
-    font-size: em(24);
     line-height: em(30, 24);
   }
-
 }
 
 @mixin box-shadow($shadow...) {

@@ -1,13 +1,13 @@
 <template>
-  <div class="addScholarshipContainer">
-    <div class="masterModal" @click="modal = true">
-      <img src="@/assets/mais.svg" alt="addScholarshipIcon" class="plusIcon" />
-      <section class="addScholarshipTxt">
-        <h3>Adicionar Bolsa</h3>
-        <h4 class="addScholarshipTxt">
-          Clique para adicionar bolsas de cursos do seu interesse
-        </h4>
-      </section>
+  <div>
+    <div class="addScholarshipContainer">
+      <div class="addScholarshipModal" @click="modal = true">
+        <img src="@/assets/mais.svg" alt="addScholarshipIcon" />
+        <section class="addScholarshipTxt">
+          <h3>Adicionar Bolsa</h3>
+          <h4>Clique para adicionar bolsas de cursos do seu interesse</h4>
+        </section>
+      </div>
     </div>
     <ModalAddScholarship
       v-if="modal"
@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import ModalAddScholarship from "@/components/ModalAddScholarship.vue";
-import ShowcaseItem from "@/components/ShowcaseItem.vue";
+import ModalAddScholarship from "@/components/ModalAddScholarship/ModalAddScholarship.vue";
+import ShowcaseItem from "@/components/ShowcaseItem/ShowcaseItem.vue";
 import { mapActions } from "vuex";
 
 import { api } from "@/services.js";
@@ -80,6 +80,6 @@ export default {
 };
 </script>
 
-<style lang="css">
-@import "./styles/AddScholarshipStyle.css";
+<style lang="scss" scoped>
+@import "../../styles/components/addScholarship.scss";
 </style>

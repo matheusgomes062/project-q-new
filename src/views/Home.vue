@@ -1,41 +1,27 @@
 <template>
   <div id="main">
-    <div class="breadcrumbs">
-      <h5 v-if="window.width >= 966" class="fontBreadcrumb">Home</h5>
-      <h5 v-if="window.width >= 966" class="bar">/</h5>
-      <h5 class="mobileBreadcrumb" style="display: flex; justify-content: center;">
-        <img
-          v-if="window.width < 966"
-          src="@/assets/chevron-left-solid.svg"
-          alt="leftArrow"
-          class="smallIcons"
-          style="margin-right: 5px;"
-        />
-        <h4 v-if="window.width >= 966" class="fontBreadcrumb">Minha conta</h4>
-        <h2 v-if="window.width < 966" class="fontBreadcrumb">Minha conta</h2>
-      </h5>
-      <h5 v-if="window.width >= 966" class="bar">/</h5>
-      <h5 v-if="window.width >= 966" style="color: grey; margin-left: 5px;">Bolsas favoritas</h5>
-    </div>
-    <h1 class="fontHome">Bolsas favoritas</h1>
-    <p class="homDescription">
+    <Breadcrumb />
+    <h1>Bolsas favoritas</h1>
+    <p>
       Adicione os cursos e faculdades do seu interesse e receba atualizações com
-      as melhores ofertas disponíveis
+      as melhores ofertas.
     </p>
-    <Semesters v-on:semesterFilter="emitFilterSemester($event)" />
+    <Semesters @semesterFilter="emitFilterSemester($event)" />
     <AddScholarship :winWidth="window.width" :semesterFilterProp="semesterFilter" />
   </div>
 </template>
 
 <script>
-import Semesters from "@/components/Semesters.vue";
-import AddScholarship from "@/components/AddScholarship.vue";
+import Semesters from "@/components/Semesters/Semesters.vue";
+import AddScholarship from "@/components/AddScholarship/AddScholarship.vue";
+import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb.vue";
 
 export default {
   name: "home",
   components: {
     Semesters,
-    AddScholarship
+    AddScholarship,
+    Breadcrumb
   },
   data() {
     return {

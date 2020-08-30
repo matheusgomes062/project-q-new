@@ -1,0 +1,44 @@
+.cancelBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid $secondary-blue;
+  color: $secondary-blue;
+  @include type-1(16);
+  transition: all 0.3s;
+  cursor: pointer;
+  width: 110px;
+  border-radius: 5px;
+  &:hover {
+    background: $secondary-blue;
+    h4 {
+      color: #fafafa;
+    }
+  }
+}
+
+.addBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid $secondary-yellow;
+  background-color: $main-yellow;
+  color: $black;
+  text-align: center;
+  @include type-1(16);
+  transition: all 0.3s;
+  cursor: pointer;
+  width: 200px;
+  border-radius: 5px;
+  h4 {
+    border-style: none !important;
+  }
+}
+
+.btnDisabled {
+  border: 2px solid #adadad;
+  background-color: #d3d3d3;
+  cursor: default;
+}

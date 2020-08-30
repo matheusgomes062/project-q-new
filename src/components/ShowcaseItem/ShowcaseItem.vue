@@ -30,32 +30,24 @@
       </section>
       <section class="showcaseInfo">
         <div class="info2Txt">
-          <h3 class="info2Title">
-            {{ favorites[favIndex].course.kind.toUpperCase() }}
-          </h3>
+          <h3 class="info2Title">{{ favorites[favIndex].course.kind.toUpperCase() }}</h3>
           <h2 style="margin: -8px 5px">.</h2>
           <h3>{{ favorites[favIndex].course.shift.toUpperCase() }}</h3>
         </div>
-        <h4 class="info2SubTitle">
-          Início das aulas em: {{ favorites[favIndex].start_date }}
-        </h4>
+        <h4 class="info2SubTitle">Início das aulas em: {{ favorites[favIndex].start_date }}</h4>
       </section>
       <section class="showcaseInfo" style="border-style: none;">
         <h5 class="showcaseInfo3Title">Mensalidade com o Quero Bolsa:</h5>
-        <h4 style="font-weight: 500; text-decoration: line-through;">
-          {{ Math.round(favorites[favIndex].full_price) | numeroPreco }}
-        </h4>
+        <h4
+          style="font-weight: 500; text-decoration: line-through;"
+        >{{ Math.round(favorites[favIndex].full_price) | numeroPreco }}</h4>
         <div class="discountTxt">
           <h1 class="money">
             {{
-              Math.round(favorites[favIndex].price_with_discount) | numeroPreco
+            Math.round(favorites[favIndex].price_with_discount) | numeroPreco
             }}
           </h1>
-          <h4
-            style="font-weight: 500; text-align: flex-end; align-self: center;"
-          >
-            /mês
-          </h4>
+          <h4 style="font-weight: 500; text-align: flex-end; align-self: center;">/mês</h4>
         </div>
       </section>
       <div class="showcaseButtonsContainer">
@@ -153,6 +145,6 @@ export default {
 };
 </script>
 
-<style lang="css">
-@import "./styles/ShowcaseItemStyle.css";
+<style lang="scss">
+@import "../../styles/components/showcaseItem.scss";
 </style>

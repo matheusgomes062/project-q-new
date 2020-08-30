@@ -1,0 +1,83 @@
+.semester {
+  display: inline-block;
+  width: 100%;
+  padding: 40px 0;
+  @include type-1(16);
+  font-weight: bold;
+}
+
+// could have been done with ul and li, but opted out for this
+.semesterContainer {
+  @extend .flex-row;
+  float: right;
+
+  div {
+    justify-content: center;
+    display: inline-flex;
+    text-align: center;
+    border: 2px solid $secondary-blue;
+    background-color: white;
+    color: $secondary-blue;
+    cursor: pointer;
+  }
+  div:nth-child(n) {
+    padding: 5px 20px;
+  }
+  div:nth-child(1) {
+    border-radius: 5px 0px 0px 5px;
+  }
+  div:nth-child:not(:first-child, :last-child) {
+    border-radius: 0px 0px 0px 0px;
+  }
+  div:nth-last-child(1) {
+    border-radius: 0px 5px 5px 0px;
+  }
+
+  // MAKE THIS MORE EFFICIENT
+  .item1,
+  .item2,
+  .item3,
+  div:hover {
+    border-right: 3px solid $secondary-blue;
+    background-color: $secondary-blue;
+    color: white;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 966px) {
+  .semesterContainer {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #007a8d;
+    width: 100%;
+  }
+
+  .item {
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #007a8d;
+    background-color: white;
+    color: #007a8d;
+    cursor: pointer;
+  }
+
+  .selectedItem,
+  .item1,
+  .item2,
+  .item3 {
+    border: 1px solid #007a8d;
+    background-color: #007a8d;
+    color: white;
+  }
+
+  #item3 {
+    border: 1px solid #007a8d;
+  }
+}
