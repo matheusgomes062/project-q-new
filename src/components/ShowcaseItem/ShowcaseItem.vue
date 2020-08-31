@@ -46,7 +46,7 @@
       <div class="showcaseButtonsContainer">
         <div>
           <div class="cancelBtn cancelBtnShowcase" @click="popItem(favIndex)">
-            <h4 v-if="winWidth >= 966">Excluir</h4>
+            <h4 v-if="winWidth.large">Excluir</h4>
             <h3 v-else>Excluir</h3>
           </div>
           <div
@@ -57,10 +57,10 @@
                 : { btnDisabled: (btnDisabled = true) }
             ]"
           >
-            <h4 v-if="btnDisabled && winWidth >= 966">Indisponível</h4>
-            <h4 v-if="!btnDisabled && winWidth >= 966">Ver oferta</h4>
-            <h3 v-if="btnDisabled && winWidth < 966">Indisponível</h3>
-            <h3 v-if="!btnDisabled && winWidth < 966">Ver oferta</h3>
+            <h4 v-if="btnDisabled && winWidth.large">Indisponível</h4>
+            <h4 v-if="!btnDisabled && winWidth.large">Ver oferta</h4>
+            <h3 v-if="btnDisabled && !winWidth.large">Indisponível</h3>
+            <h3 v-if="!btnDisabled && !winWidth.large">Ver oferta</h3>
           </div>
         </div>
       </div>
@@ -77,7 +77,7 @@ export default {
     propFavorites: { type: Array },
     favIndex: { type: Number },
     semesterFilter: { type: Number },
-    winWidth: { type: Number }
+    winWidth: { type: Object }
   },
   data() {
     return {

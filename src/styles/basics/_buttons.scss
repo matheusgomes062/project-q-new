@@ -29,7 +29,6 @@
   background-color: transparent;
   border: 2px solid $secondary-yellow;
   background-color: $main-yellow;
-  color: $black;
   text-align: center;
   @include type-1(16);
   transition: all 0.3s;
@@ -37,7 +36,11 @@
   width: 200px;
   border-radius: 5px;
   h4 {
+    color: $black;
     border-style: none !important;
+  }
+  h3 {
+    color: $black;
   }
   @include d(sm) {
     flex-grow: 1;
@@ -48,5 +51,6 @@
 .btnDisabled {
   border: 2px solid #adadad;
   background-color: #d3d3d3;
+  color: #adadad;
   cursor: default;
 }

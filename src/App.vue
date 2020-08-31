@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <TheHeader :winWidth="windowSize" />
-    <main id="main" :winWidth="window.width">
+    <main id="main" :winWidth="windowSize">
       <router-view />
     </main>
-    <TheFooter :winWidth="window.width" />
+    <TheFooter :winWidth="windowSize" />
   </div>
 </template>
 
