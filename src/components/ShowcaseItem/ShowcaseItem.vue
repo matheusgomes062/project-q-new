@@ -82,7 +82,6 @@ export default {
   data() {
     return {
       btnDisabled: false,
-      // favorites: this.propFavorites,
       favorites: this.$store.state.favScholarshipsStore,
       showAll: true,
       es2019: false,

@@ -137,16 +137,16 @@ select {
   appearance: none;
 }
 
-// .selectBox {
-//   display: inline-block;
-//   position: relative;
-// }
-// .selectBox select {
-//   background: #fff
-//     url("https://img.icons8.com/metro/26/000000/chevron-down.png") no-repeat 95%
-//     50%;
-//   z-index: 1;
-// }
+.selectBox {
+  display: inline-block;
+  position: relative;
+}
+.selectBox select {
+  background: #fff
+    url("https://img.icons8.com/metro/26/000000/chevron-down.png") no-repeat 95%
+    50%;
+  z-index: 1;
+}
 
 /* Checkbox style */
 .checkboxContainer {

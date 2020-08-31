@@ -58,7 +58,6 @@ export default {
   },
   async mounted() {
     await this.fetchScholarships();
-    // this.filterScholarships();
   },
   methods: {
     ...mapActions(["changeFavScholarships"]),

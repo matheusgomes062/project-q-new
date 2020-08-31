@@ -8,7 +8,8 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: Home,
+    props: true,
     // children: [
     //   {
     //     path: "/",
@@ -17,19 +18,19 @@ const routes = [
     //     children: [
     //       {
     //         path: "/",
-    //         name: "Bolsas Favorias",
+    //         name: "Bolsas Favoritas",
     //         component: bolsasFavoritas
     //       },
     //     ]
     //   }
     // ]
-  }
+  },
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes
+  routes,
 });
 
 export default router;

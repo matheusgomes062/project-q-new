@@ -26,14 +26,7 @@
       <a class="profileIcon">
         <h4 v-if="winWidth.large">Nome Sobrenome</h4>
         <h3 v-else>Conta</h3>
-        <img
-          v-if="winWidth.large"
-          src="@/assets/user-circle-regular.svg"
-          alt="iconePerfil"
-          class="smallIcons"
-          style="margin-left: 10px !important; margin-right: 0px !important;"
-        />
-        <img v-else src="@/assets/user-circle-regular.svg" alt="iconePerfila" class="smallIcons" />
+        <img src="@/assets/user-circle-regular.svg" alt="iconePerfil" class="smallIcons" />
       </a>
     </nav>
     <div class="bottomNav">

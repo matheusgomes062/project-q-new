@@ -7,7 +7,7 @@
       as melhores ofertas.
     </p>
     <Semesters @semesterFilter="emitFilterSemester($event)" />
-    <AddScholarship :winWidth="window.width" :semesterFilterProp="semesterFilter" />
+    <AddScholarship :winWidth="winWidth" :semesterFilterProp="semesterFilter" />
   </div>
 </template>
 
@@ -18,6 +18,9 @@ import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb.vue";
 
 export default {
   name: "home",
+  props: {
+    winWidth: { type: Object }
+  },
   components: {
     Semesters,
     AddScholarship,
@@ -25,25 +28,13 @@ export default {
   },
   data() {
     return {
-      window: {
-        width: 0,
-        height: 0
-      },
       semesterFilter: 1
     };
   },
-  created() {
-    window.addEventListener("resize", this.handleResize);
-    this.handleResize();
-  },
-  destroyed() {
-    window.removeEventListener("resize", this.handleResize);
+  mounted() {
+    console.log(this.winWidth);
   },
   methods: {
-    handleResize() {
-      this.window.width = window.innerWidth;
-      this.window.height = window.innerHeight;
-    },
     emitFilterSemester(val) {
       this.semesterFilter = val;
     }

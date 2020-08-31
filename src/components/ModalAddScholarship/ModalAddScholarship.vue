@@ -11,10 +11,12 @@
       <div class="options">
         <div class="containerModal">
           <span>SELECIONE SUA CIDADE</span>
-          <select class="select" v-model="citySelected">
-            <option disabled value>Escolha uma cidade</option>
-            <option v-for="option in cities" :key="option">{{ option }}</option>
-          </select>
+          <div class="selectBox">
+            <select v-model="citySelected">
+              <option disabled value>Escolha uma cidade</option>
+              <option v-for="option in cities" :key="option">{{ option }}</option>
+            </select>
+          </div>
           <span style="margin-bottom: 20px;">COMO VOCÊ QUER ESTUDAR?</span>
           <div class="checkboxContainer">
             <div>
@@ -29,14 +31,16 @@
         </div>
         <div class="containerModal">
           <span>SELECIONE O CURSO DE SUA PREFERÊNCIA</span>
-          <select v-model="courseSelected">
-            <option disabled value>Escolha um curso</option>
-            <option v-for="option in courses" :key="option.id">
-              {{
-              option
-              }}
-            </option>
-          </select>
+          <div class="selectBox">
+            <select v-model="courseSelected">
+              <option disabled value>Escolha um curso</option>
+              <option v-for="option in courses" :key="option.id">
+                {{
+                option
+                }}
+              </option>
+            </select>
+          </div>
           <span>ATÉ QUANTO PODE PAGAR?</span>
           <h4>{{ sliderValue | numeroPreco }}</h4>
           <div class="slideContainer">
@@ -187,7 +191,6 @@ export default {
       let data = Array.from(this.data);
       let city = this.citySelected;
       let course = this.courseSelected;
-      // if(this.checkBoxSelected === "")
       let kind = this.kind;
       let price = this.sliderValue;
       let resultAux = [];

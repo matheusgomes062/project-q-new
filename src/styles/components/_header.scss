@@ -80,6 +80,10 @@ h5 {
   align-items: center;
   width: fit-content;
   cursor: pointer;
+  img {
+    margin-left: 10px;
+    margin-right: 0px;
+  }
   @include d(sm) {
     flex-direction: column-reverse;
     justify-content: center;
@@ -88,6 +92,7 @@ h5 {
       margin: 0;
       width: 35px;
       padding: 5px;
+      margin: 0;
     }
     padding-left: 15px;
     border-left: 3px solid #adadad80;

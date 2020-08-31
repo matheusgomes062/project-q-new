@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <TheHeader :winWidth="windowSize" />
-    <main id="main" :winWidth="windowSize">
-      <router-view />
+    <main id="main">
+      <router-view :winWidth="windowSize" />
     </main>
     <TheFooter :winWidth="windowSize" />
   </div>
@@ -20,8 +20,7 @@ export default {
   data() {
     return {
       window: {
-        width: 0,
-        height: 0
+        width: 0
       },
       windowSize: {
         large: false,
@@ -40,7 +39,6 @@ export default {
   methods: {
     handleResize() {
       this.window.width = window.innerWidth;
-      this.window.height = window.innerHeight;
       this.handleWidth(this.window.width);
     },
     handleWidth(size) {
